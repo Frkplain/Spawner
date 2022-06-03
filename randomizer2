@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RandomSpawner : MonoBehaviour
+{
+    public int GameObject theCube;
+    public int xPos;
+    public int zPos;
+    public int cubeCount;
+
+    void Start()
+    {
+        StartCoroutine(CubeDrop());
+    }
+
+    IEnumerator CubeDrop()
+    {
+        while (cubeCount < 50)
+        {
+            xPos = Random.Range(1, 50);
+            zPos = Random.Range(1, 31);
+            Instantiate(theCube, new Vector3(xPos, 43, zPos), Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+            cubeCount += 1;
+        }
+    }
+
+
+}
