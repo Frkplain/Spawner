@@ -1,0 +1,10 @@
+    public GameObject cubePrefab;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-15, 22), 20, Random.Range(-15, 22));
+            Instantiate(cubePrefab, randomSpawnPosition, Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+        }
